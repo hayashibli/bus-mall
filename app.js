@@ -58,13 +58,10 @@ function randomProductsImages(){
     rightImage = Math.floor((Math.random() * Allproducts.length));
   } while(leftImage === rightImage);
 
-  do{
-    leftImage = Math.floor((Math.random() * Allproducts.length));
-  } while(leftImage === centeredImage);
 
   do{
     centeredImage = Math.floor((Math.random() * Allproducts.length));
-  } while(rightImage === centeredImage || rightImage === leftImage || centeredImage === leftImage);
+  } while(rightImage === centeredImage || centeredImage === leftImage);
 
   // do{
   //   centeredImage = Math.floor((Math.random() * Allproducts.length));
