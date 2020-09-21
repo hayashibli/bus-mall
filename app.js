@@ -6,7 +6,9 @@ var LeftSideImage;
 var CenteredImage;
 var RightSideImage;
 
-
+var leftImage;
+var centeredImage;
+var rightImage;
 
 // Create a function constructor;
 
@@ -44,16 +46,33 @@ new Products ('wine-glass','images/wine-glass.jpg');
 // Create function for random displaying of images;
 
 function randomProductsImages(){
-  var leftImage = Math.floor(Math.random() * Allproducts.length);
+  leftImage = Math.floor((Math.random() * Allproducts.length));
   console.log(leftImage);
 
-  var centeredImage = Math.floor((Math.random() * Allproducts.length));
-  console.log(centeredImage);
+  // centeredImage = Math.floor((Math.random() * Allproducts.length));
+  // console.log(centeredImage);
 
-  var rightImage = Math.floor((Math.random() * Allproducts.length));
-  console.log(rightImage);
+  // rightImage = Math.floor((Math.random() * Allproducts.length));
+  // console.log(rightImage);
+  do{
+    rightImage = Math.floor((Math.random() * Allproducts.length));
+  } while(leftImage === rightImage);
+
+  do{
+    leftImage = Math.floor((Math.random() * Allproducts.length));
+  } while(leftImage === centeredImage);
+
+  do{
+    centeredImage = Math.floor((Math.random() * Allproducts.length));
+  } while(rightImage === centeredImage || rightImage === leftImage || centeredImage === leftImage);
+
+  // do{
+  //   centeredImage = Math.floor((Math.random() * Allproducts.length));
+  // } while(leftImage === centeredImage);
+
 
   displayProductsImages(leftImage, centeredImage, rightImage);
+
 }
 
 randomProductsImages();
