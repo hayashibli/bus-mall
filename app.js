@@ -12,6 +12,7 @@ var rightImage;
 var lastshowimages = [-1, -1, -1];
 var click = [];
 var names = [];
+var displays = [];
 
 // Create a function constructor;
 
@@ -160,6 +161,7 @@ function clicksCounter(event) {
   if (clicks >= 25) {
     section.removeEventListener('click', clicksCounter);
     showResults();
+    barChart();
   }
 }
 // console.log('hi');
@@ -175,36 +177,81 @@ function showResults() {
 
 var ctx = document.getElementById('myChart');
 
-for (var i = 0; i < Allproducts.length; i++) {
-  click[i] = Allproducts[i].numberofclicks;
-  names[i] = Allproducts[i].productName;
-  // displays[i] = Allproducts[i].displayedtimes;
-}
 
-var myChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: names,
-    datasets: [{
-      label: 'Number of votes',
-      data: click,
-      backgroundColor: [
-        'rgb(128, 128, 0)'
-      ],
-      borderColor: [
-        'rgb(255, 255, 0)'
-      ],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: true
-        }
-      }]
-    }
+function barChart() {
+
+  for (var i = 0; i < Allproducts.length; i++) {
+    click[i] = Allproducts[i].numberofclicks;
+    names[i] = Allproducts[i].productName;
+    displays[i] = Allproducts[i].displayedtimes;
   }
-});
-
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: names,
+      datasets: [{
+        label: 'Number of votes',
+        data: click,
+        backgroundColor: [
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+          'rgb(0, 0, 0)',
+        ],
+        borderWidth: 1
+      },
+      {
+        label: 'Number of displays',
+        data: displays,
+        backgroundColor: [
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+          'rgb(255, 255, 0)',
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+}
