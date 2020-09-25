@@ -6,21 +6,26 @@ body{
 h1{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    border: 5px dotted yellow;
+    border: 15px double yellow;
     width: 400px;
     margin-top: 50px;
     margin-left: 36%;
     padding: 10px;
 }
  main section img{
-     width: 400px;
-     height: 500px;
-     margin-top: 100px;
+     width: 250px;
+     height: 250px;
+     margin-top: 150px;
      margin-right: 20px;
+     margin-left: 150px;
      padding: 0px;
      border: solid yellow 3px ;
+     transition: width height 5s;
  }
-
+ main section img:hover{
+     width: 350px ;
+     height: 350px;
+ }
  #leftProduct{
 margin-left: 100px;
  }
@@ -29,4 +34,20 @@ ul li {
     font-size: 17px;
     padding: 5px;
     list-style-type: square;
+}
+header p {
+    font-size: 20px;
+    margin-left: 50px;
+    display: inline;
+    
+}
+header p:hover{
+    color: yellow;
+}
+
+section p {
+    font-size: 20px;
+    border: double 15px yellow;
+    text-align: center;
+    margin-top: 50px;
 }
