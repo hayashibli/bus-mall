@@ -160,11 +160,12 @@ function clicksCounter(event) {
   }
   if (clicks >= 25) {
     section.removeEventListener('click', clicksCounter);
+    storeData();
     showResults();
     barChart();
   }
 }
-// console.log('hi');
+
 function showResults() {
   var resultslist = document.getElementById('Results');
   for (var i = 0; i < Allproducts.length; i++) {
@@ -255,3 +256,22 @@ function barChart() {
     }
   });
 }
+
+function storeData() {
+  //stringify
+  var stringifyProducts = JSON.stringify(Allproducts);
+  //store it in local storage
+  localStorage.setItem('allproducts', stringifyProducts);
+}
+
+function finalData (){
+  var x = localStorage.getItem('allproducts');
+  if(x){
+    Allproducts = JSON.parse(x);
+    showResults();
+    barChart();
+  }
+}
+finalData();
+
+
