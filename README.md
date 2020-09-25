@@ -1,1 +1,2 @@
-# bus-mall
+# Bus-mall
+**This web page contains products that are shown for people and they should click on there favourite product then after 25 clicks the results will be shown as numbers and also they will be presented inside a chart**

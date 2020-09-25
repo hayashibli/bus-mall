@@ -51,43 +51,6 @@ console.log('hi' + Allproducts.productName);
 // Create function for random displaying of images;
 
 function randomProductsImages() {
-  // leftImage = Math.floor((Math.random() * Allproducts.length));
-  // console.log(leftImage);
-
-  // centeredImage = Math.floor((Math.random() * Allproducts.length));
-  // console.log(centeredImage);
-
-  // rightImage = Math.floor((Math.random() * Allproducts.length));
-  // console.log(rightImage);
-  // do{
-  //   rightImage = Math.floor((Math.random() * Allproducts.length));
-  // } while(leftImage === rightImage);
-
-
-  // do{
-  //   centeredImage = Math.floor((Math.random() * Allproducts.length));
-  // } while(rightImage === centeredImage || centeredImage === leftImage);
-
-
-  // Making the images that appear in the first time different from images in the second time
-  // Track users' clicks
-  // click = image thats is clicked
-  // prevent showing the clicked image // make last show array in the function constructor and push the displayed images to it then prevent showing them again
-  // show an alteranate image for the clicked one
-
-  // lastshowimages.push(leftImage, centeredImage, rightImage);
-  // console.log(lastshowimages);
-
-
-  //     if(leftImage === lastshowimages.length){
-  //     leftImage = Math.floor((Math.random() * Allproducts.length));
-  //   }
-  //   else if (rightImage === lastshowimages.length){
-  //     rightImage = Math.floor((Math.random() * Allproducts.length));
-  //   }
-  //   else if (centeredImage === lastshowimages.lenght){
-  //     centeredImage = Math.floor((Math.random() * Allproducts.length));
-  //   }
 
   do {
     leftImage = Math.floor((Math.random() * Allproducts.length));
@@ -140,6 +103,7 @@ function displayProductsImages(left, centered, right) {
 var section = document.getElementById('productsImages');
 section.addEventListener('click', clicksCounter);
 
+// Create a function that count the number of clicks
 function clicksCounter(event) {
   var clickonproduct;
   if (event.target.id === 'leftProduct') {
@@ -165,7 +129,7 @@ function clicksCounter(event) {
     barChart();
   }
 }
-
+// Create function to show the results after finishing 25 clicks
 function showResults() {
   var resultslist = document.getElementById('Results');
   for (var i = 0; i < Allproducts.length; i++) {
@@ -176,6 +140,7 @@ function showResults() {
   }
 }
 
+// Create a chart for results
 var ctx = document.getElementById('myChart');
 
 
@@ -256,7 +221,7 @@ function barChart() {
     }
   });
 }
-
+// function for local storage
 function storeData() {
   //stringify
   var stringifyProducts = JSON.stringify(Allproducts);
